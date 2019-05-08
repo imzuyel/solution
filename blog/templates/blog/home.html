@@ -1,0 +1,27 @@
+ {% extends "base.html" %}
+ {% load staticfiles %}
+ {% block dis %}
+ <div class="border rounded" style=" padding:3px;"><img src="{% static 'pic.jpg' %}" height=100%; width=100%></div>
+ {% endblock dis %}
+
+ {% block content %}  
+
+ <div class="row mb-2 bg-white">
+ 	{% for blogs in blogs.all %}
+ 	<div class="col-md-6 bg-white">
+ 		<div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative ">
+ 			<div class="col p-4 d-flex flex-column position-static">
+ 				<a href="{% url 'detail' blogs.id %}"><strong style="color:#FB6F3E"; class="d-inline-block mb-2 ">{{blogs.title}}</strong></a>
+ 				<a href="{% url 'detail' blogs.id %}">{{blogs.name}}</a>
+ 				<p style="color:#3E9F7B"; class="mb-auto">{{blogs.summary}}</p>
+ 				<a href="{% url 'detail' blogs.id %}"><button type="button" class="btn btn-outline-secondary">Continue Reading</button>  </a>
+ 			</div>
+
+ 			<div class="col-auto d-none d-lg-block">
+ 				<rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em"><img class="p-3 mt-5" src="{% static "uri.png" %}"></text></svg>
+ 			</div>
+ 		</div>
+ 	</div>
+ 	{% endfor %}
+ </div>      
+ {% endblock content %}

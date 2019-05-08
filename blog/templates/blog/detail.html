@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+	<div class="container bg-white border rounded " style="border:2px solid #DEE2E6;">
+		<div class="text-center">
+			<p style="color:#FB6F3E";>{{blog.title}}</p>
+			<h2>{{blog.name}}</h2>
+			<p style="color:#3E9F7B">{{blog.description}}</p>
+			<small>{{blog.time}}</small>
+			<hr>
+		</div>
+		<div>
+			<p>{{blog.problem}}</p>
+			<h3>{{blog.input_p}}</h3>
+			<p>{{blog.input_description}}</p>
+			<h3>{{blog.output_p}}</h3>
+			<p>{{blog.output_description}}</p>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<img src='{{blog.image.url}}' class="img-fluid rounded border border-info" width=auto>
+			</div>
+		</div>
+		<hr>
+		<div class="container">
+			<div><h3>{{blog.solution}}</h3></div>			
+			<div class="row rounded">								
+			</div>
+		</div><br>
+	</div>
+</div>
+<div id="accordion" class="mb-3">
+  <div class="card p-2">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link btn-outline-primary waves-effect " data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Java
+        </button>
+        <button class="btn btn-link collapsed btn-outline-primary waves-effect " data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          C++
+        </button>
+      </h5>
+    </div>
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+        <div class="col-12 bg-light border border-info rounded">
+          <pre class="ml-3" style="color:#FF4A1E; ">{{blog.solution_java}}</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+      <div class="card-body">
+       <div class="col-12 bg-light border border-info rounded">
+        <pre class="ml-3" style="color:#FF4A1E; ">{{blog.solution_c}}</pre>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-header" id="headingOne">
+    <h5 class="mb-0">
+     <a target="blank" href="{{blog.submit}}"><button class="btn btn-link collapsed btn-outline-primary waves-effect " data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+       Click Here for  Submit Solution
+     </button>
+   </h5>
+ </div>
+</div>
+</div>
+{% endblock content %}
